@@ -3,8 +3,8 @@
 | Name           | NRP        |
 | ---            | ---        |
 | Reino Yuris Kusumanegara | 5025231075 | 
-| Muhammad Rizqy Hidayat| 5025 |
-| Muhammad Hanif Fakriansyah| 5025 |
+| Muhammad Rizqy Hidayat| 5025231161 |
+| Muhammad Hanif Fakriansyah| 5025231082 |
 | Fazle Robby Pratama| 5025 |
 
 ## A. Travelling Salesman Problem
