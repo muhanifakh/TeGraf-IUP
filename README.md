@@ -233,17 +233,16 @@ def is_valid_move(pos, visited, board_size):
 
 ```
 
-<br>4. Generate a Random Knight's Tour <br> The `random_knights_tour` function attempts to find a complete knight's tour using backtracking:
+<br>4. Generate Knight's Tour <br> The `knights_tour` function attempts to find a complete knight's tour using backtracking:
 
-- The knight moves through all possible positions in random order.
+- The knight moves through all possible positions based on `knight_moves`.
 - If a move is valid, it is added to the list of visited positions.
 - If a dead end is reached, the function backtracks by removing the last move.
 ```
-def random_knights_tour(current_position, visited, board_size):
+def knights_tour(current_position, visited, board_size):
     if len(visited) == board_size[0] * board_size[1]:
-        return visited
-    random.shuffle(knight_moves)
-    ...
+        # All squares have been visited exactly once; this is a valid tour.
+        return visited    ...
 ```
 
 <br>5. Start the Tour <br> Begins the knight's tour from the user-specified starting position and finds a valid path, if possible.
@@ -254,7 +253,6 @@ def random_knights_tour(current_position, visited, board_size):
 ```
 Enter the board size (e.g., '5 5'): 5 5
 Enter the starting position of the knight (e.g., '2 2'): 2 2
-The knight successfully visits all squares with a randomized tour:
 Move 1: (2, 2)
 Move 2: (4, 3)
 Move 3: (2, 4)
@@ -265,7 +263,7 @@ Move 4: (0, 3)
 
 - Conclusion
 
-This implementation of the Knight's Tour problem uses a randomized backtracking approach to find a solution. It takes the board size and starting position as input, allowing for flexibility in the problem setup. The solution attempts to find a path where the knight visits each square exactly once, but the random nature of the solution means it may not always succeed in finding a complete tour, especially on smaller boards or with less favorable starting conditions. Nonetheless, it provides an interesting approach to the classic problem, combining elements of randomness and algorithmic backtracking.
+This implementation of the Knight's Tour problem uses a backtracking approach to find a solution. It takes the board size and starting position as input, allowing for flexibility in the problem setup. The solution attempts to find a path where the knight visits each square exactly once, but the nature of the solution means it may not always succeed in finding a complete tour, especially on smaller boards or with less favorable starting conditions. Nonetheless, it provides an interesting approach to the classic problem, using elements of algorithmic backtracking.
 
 
 C. Chinese Postman Problem
