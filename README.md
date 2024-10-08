@@ -368,5 +368,56 @@ if __name__ == "__main__":
     main()
 ```
 
-- Explanation
+**Explanation**
+
+- ```min_cost_matching``` Function:
   
+This function pairs up vertices with odd degrees with the minimum possible cost to make the graph Eulerian.
+It uses dynamic programming to compute the minimum cost of pairing up all odd-degree vertices.
+Input:
+odd_vertices: List of vertices with odd degrees.
+dist: A 2D list where dist[u][v] holds the shortest distance between vertices u and v.
+Process:
+Iterates over all subsets of odd-degree vertices using a bitmask.
+For each subset, tries to pair up vertices and computes the total pairing cost.
+dp[mask] stores the minimum cost for the subset represented by mask.
+Output: Returns the minimum cost required to pair up all odd-degree vertices.
+- ```find_eulerian_path``` Function:
+
+This function constructs an Eulerian path after the graph is made Eulerian.
+Uses a stack-based DFS-like approach to traverse the graph.
+Input:
+adj_list: The adjacency list of the graph.
+edge_count: A dictionary tracking the remaining number of times an edge between u and v is available.
+start: The starting vertex for the Eulerian path.
+edge_to_id: Maps the edge between two vertices (u, v) to a unique edge ID.
+Process:
+Traverses edges as long as they are available.
+Removes edges as they are traversed to ensure each is used only once.
+Backtracks when no more edges are available from the current vertex.
+Output: Returns a list of edge IDs that form the Eulerian path.
+- ```chinese_postman_problem``` Function:
+  
+Orchestrates the overall process of solving the CPP.
+Input:
+n: Number of vertices.
+e: Number of edges.
+edges: List of tuples (edge_id, u, v, cost) representing each edge's ID, vertices, and weight.
+start: Starting vertex for the Eulerian path.
+Process:
+Builds the graph with an adjacency list, edge counts, and distance matrix (dist).
+Uses the Floyd-Warshall algorithm to compute the shortest path between all pairs of vertices, populating dist.
+Identifies odd-degree vertices.
+Calls min_cost_matching to find the minimum additional cost required to make the graph Eulerian.
+Adds this cost to the original graph's edge costs to get the total cost.
+Calls find_eulerian_path to generate the route of the Eulerian circuit.
+Output:
+Prints the total cost of the CPP solution.
+Prints the Eulerian path as a sequence of edge IDs.
+- ```main``` Function:
+  
+Handles input and invokes the chinese_postman_problem function.
+Reads the number of vertices n, number of edges e, and the list of edges.
+Input Format:
+Each edge is given as edge_id u v cost, where edge_id uniquely identifies the edge between vertices u and v with a weight cost.
+Reads the start vertex for the path and calls the chinese_postman_problem.
